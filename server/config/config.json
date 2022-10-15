@@ -1,0 +1,18 @@
+{
+    "dbName": "login",
+    "dbConfig": {
+        "server": "localhost",
+        "options": {
+            "port": 3306,
+            "trustServerCertificate": true
+        },
+        "authentication": {
+            "type": "default",
+            "options": {
+                "userName": "admin",
+                "password": "password"
+            }
+        }
+    },
+    "secret": "my-secret"
+}
