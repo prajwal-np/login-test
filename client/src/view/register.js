@@ -30,11 +30,7 @@ class RegisterComponent extends React.Component {
       this.props.router.navigate("/profile");
     }
   }
-  componentDidUpdate(prevProps) {
-    if (this.props.registrationSuccess) {
-      this.props.router.navigate("/");
-    }
-  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.registerAction(this.state);

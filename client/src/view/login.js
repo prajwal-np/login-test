@@ -15,7 +15,6 @@ import {
 } from "../theme";
 import { clear } from "../app/auth/auth.slice";
 import { withRouter } from "../utils/routes";
-import TokenService from "../api/token.service";
 
 class LoginComponent extends React.Component {
   constructor(props) {
@@ -32,15 +31,6 @@ class LoginComponent extends React.Component {
         email: this.props.registeredEmail,
       });
       this.props.clear();
-    }
-    if (this.props.loggedIn || TokenService.getUser()?.email) {
-      this.props.router.navigate("/profile");
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.loggedIn || TokenService.getUser()?.email) {
-      this.props.router.navigate("/profile");
     }
   }
 

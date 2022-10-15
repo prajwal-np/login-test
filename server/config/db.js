@@ -2,9 +2,9 @@ var mysql = require("mysql");
 const tedious = require('tedious');
 const { Sequelize } = require('sequelize');
 
-const { dbName, dbConfig } = require('./config.json');
+const config = require('./config');
 module.exports = db = {};
-
+const { dbName, dbConfig } = config
 async function initialize() {
     const dialect = 'mysql';
     const host = dbConfig.server;

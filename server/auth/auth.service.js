@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-const { secret } = require('../config/config.json');
+const config = require('../config/config');
+const {secret, salt} = config
 const db = require('../config/db');
 
 function omitHash(user) {
@@ -22,7 +23,8 @@ async function create(params) {
         throw 'Username "' + params.email + '" is already taken';
     }
     if (params.password) {
-        params.password = await bcrypt.hash(params.password, 10);
+        console.log(salt)
+        params.password = await bcrypt.hash(params.password, salt);
     }
     await db.User.create(params);
 }

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import TokenService from "../../api/token.service";
 import * as actions from "./auth.action";
 const initialState = {
   loading: false,
@@ -28,6 +29,12 @@ const AuthSlice = createSlice({
       state.loggedIn = false;
       return state;
     },
+    logIn:(state)=>{
+      const user = TokenService.getUser();
+      state.loggedIn = !!user;
+      state.userDetails = user;
+      return state
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -63,10 +70,9 @@ const AuthSlice = createSlice({
         const { payload } = action;
         state.loading = false;
         state.errorMsg = payload;
-        console.log(action.payload);
       });
   },
 });
 
 export const authPage = AuthSlice.reducer;
-export const { clear, logout } = AuthSlice.actions;
+export const { clear, logout, logIn } = AuthSlice.actions;

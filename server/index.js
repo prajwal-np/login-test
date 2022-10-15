@@ -1,14 +1,19 @@
 require('rootpath')();
 const express = require('express');
-const app = express();
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+const basicAuth = require('express-basic-auth');
 
-app.use(express.json());
+const app = express();app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/auth', require('./auth/auth.controller'));
-
+app.use('/docs',basicAuth({
+    users: {'admin': 'passme21'},
+    challenge: true,
+}), swaggerUi.serve, swaggerUi.setup(swaggerDocument, {}));
 
 function errorHandler(err, req, res, next) {
     switch (true) {

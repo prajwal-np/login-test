@@ -20,13 +20,10 @@ class LoginComponent extends React.Component {
     this.setState({
       user: TokenService.getUser(),
     });
-    if (!TokenService.getUser()?.email) {
-      this.props.router.navigate("/");
-    }
+ 
   }
   logout = () => {
     TokenService.removeUser();
-    this.props.router.navigate("/");
     this.props.logout();
   };
   render() {

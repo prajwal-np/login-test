@@ -1,4 +1,4 @@
-const tokenName = 'token';
+const tokenName = process.env.TOKENAME;
 
 
 const getLocalAccessToken = () => {

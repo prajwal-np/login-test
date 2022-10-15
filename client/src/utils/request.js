@@ -1,1 +1,1 @@
-export const getURL = (url) => `localhost:4000${url}`;
+export const getURL = (url) => `${process.env.REACT_APP_SERVER_HOSTNAME}${url}`;
