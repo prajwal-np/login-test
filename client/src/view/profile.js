@@ -7,8 +7,8 @@ import TokenService from "../api/token.service";
 import { withRouter } from "../utils/routes";
 
 class LoginComponent extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       user: {
         name: "",

@@ -17,8 +17,8 @@ import { withRouter } from "../utils/routes";
 import TokenService from "../api/token.service";
 
 class RegisterComponent extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       email: "",
       password: "",

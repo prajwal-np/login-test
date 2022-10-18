@@ -17,8 +17,8 @@ import { clear } from "../app/auth/auth.slice";
 import { withRouter } from "../utils/routes";
 
 class LoginComponent extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       email: "",
       password: "",
